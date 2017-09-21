@@ -1,4 +1,4 @@
-# Game Menu
+# Learning Vuex 1
 
 > This is a project is to learn how to use Vuex.
 
