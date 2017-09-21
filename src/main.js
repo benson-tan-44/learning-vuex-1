@@ -10,8 +10,6 @@ import store from './store/store';
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
-Vue.http.options.root = 'https://vuejs-game.firebaseio.com/ ';
-
 const router = new VueRouter({
   mode: 'history',
   routes

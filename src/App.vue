@@ -16,8 +16,6 @@ export default {
     appHeader: Header
   },
   created() {
-    this.$store.dispatch('initItems');
-    this.$store.dispatch('initParty');
   }
 }
 </script>

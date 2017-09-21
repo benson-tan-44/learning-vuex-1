@@ -1,11 +1,9 @@
 import items from '../../data/items';
-import party from '../../data/party';
 import Vue from 'vue';
 
 const state = {
   items: [],
-  funds: 10000,
-  party: []
+  funds: 10000
 
 }
 
@@ -15,9 +13,6 @@ const getters = {
   },
   funds: state => {
     return state.funds;
-  },
-  party: state => {
-    return state.party;
   }
 }
 
@@ -27,9 +22,6 @@ const mutations = {
   },
   setFunds(state, funds) {
     state.funds = funds;
-  },
-  setParty(state, party){
-    state.party = party;
   },
   setDesc(state, {id, desc}){
     const record = state.party.find(element => element.id == id);
