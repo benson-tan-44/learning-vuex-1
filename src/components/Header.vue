@@ -2,14 +2,16 @@
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <router-link class="navbar-brand" to="/">Game Menu</router-link>
+      <router-link class="navbar-brand" to="/">Doot Doot</router-link>
     </div>
 
     <div class="navbar-collapse">
       <ul class="nav navbar-nav">
-        <router-link to="/inventory" activeClass="active" tag="li"><a>Inventory</a></router-link>
-        <router-link to="/store" activeClass="active" tag="li"><a>Store</a></router-link>
-        <router-link to="/party" activeClass="active" tag="li"><a>Party</a></router-link>
+        <router-link to="/inventory" activeClass="active" tag="li"><a>Pachi</a></router-link>
+        <router-link to="/store" activeClass="active" tag="li"><a>Machi</a></router-link>
+        <router-link to="/party" activeClass="active" tag="li"><a>Hachi</a></router-link>
+
+        <!--
         <li :class="{open: isDropdownOpen}" class="dropdown">
           <a
           href="#"
@@ -25,6 +27,7 @@
             <li><a @click="loadGame" href="#">Load Game</a></li>
           </ul>
           </li>
+        -->
 
       </ul>
 
@@ -47,7 +50,7 @@ import {mapGetters} from 'vuex';
 export default {
   data(){
     return {
-      isDropdownOpen: false
+      
     }
   },
   computed: {
@@ -56,20 +59,7 @@ export default {
     })
   },
   methods: {
-    saveGame(){
-      const data = {
-        funds: this.$store.getters.funds,
-        items: this.$store.getters.items,
-        party: this.$store.getters.party
-      };
-      this.$http.put('data.json', data);
-      this.isDropdownOpen = false;
-    },
-    loadGame() {
-      this.$store.dispatch('loadData');
-      this.isDropdownOpen = false;
 
-    }
   }
 
 }

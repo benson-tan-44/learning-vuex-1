@@ -1,7 +1,7 @@
 <template>
 
     <div class="col-md-12">
-      <h1>Hello!</h1>
+      <h1>This is a homepage!</h1>
     </div>
 
   </div>
