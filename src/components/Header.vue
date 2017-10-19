@@ -33,7 +33,7 @@
 
 
       <ul class="nav navbar-nav navbar-right">
-        <li>Funds: <span class="funds">{{funds}}</span> </li>
+        <!-- <li>Funds: <span class="funds"></span> </li> -->
 
 
       </ul>
@@ -50,7 +50,7 @@ import {mapGetters} from 'vuex';
 export default {
   data(){
     return {
-      
+
     }
   },
   computed: {
