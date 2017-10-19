@@ -1,22 +1,41 @@
-import items from '../../data/items';
 import Vue from 'vue';
 
 const state = {
-  items: [],
-  funds: 10000
+  apiKey: '4cc9e2888fd6143958feade895be9651',
+  result:[]
+
 
 }
 
 const getters = {
+
+  result: state => {
+    return state.result;
+  },
+  /*
   items: state => {
     return state.items;
   },
   funds: state => {
     return state.funds;
   }
+  */
 }
 
 const mutations = {
+  getSource: function()
+{
+    return this.$http.get('http://api.brewerydb.com/v2/?key=' + state.apiKey ).then((response) => {
+        this.result = response.body;
+    }, (response) => {
+        this.result = [];
+
+    });
+
+},
+
+
+  /*
   setItems(state, items){
     state.items = items;
   },
@@ -42,14 +61,16 @@ const mutations = {
       record.stock -= quantity;
       state.funds += price * quantity;
     }
-  },
+  }
+  */
 
 }
 
 const actions = {
-  initItems: ({commit}) => {
-    commit('setItems', items);
-  },
+  initAPI: ({commit}) => {
+    commit('getSource');
+  }
+  /*
   initFunds: ({commit}) => {
     commit('setFunds', funds);
   },
@@ -79,6 +100,7 @@ const actions = {
       }
     });
   }
+  */
 
 
 }
