@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 const state = {
-  apiKey: '4cc9e2888fd6143958feade895be9651',
+  apiKey: '2519bad98acfb01294fc145600974941',
   result:[]
 
 
@@ -26,7 +26,7 @@ setSource(state, result) {
 
 const actions = {
   initAPI: ({commit}) => {
-    Vue.http.get('http://api.brewerydb.com/v2/?key=' + state.apiKey ).then((response) => {
+    Vue.http.get('https://api.themoviedb.org/3/genre/movie/list?api_key=' + state.apiKey ).then((response) => {
     commit('setSource',  response.body );
   })
 
