@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 const state = {
   apiKey: '2519bad98acfb01294fc145600974941',
-  result:[],
+  movies:[],
   genres:[],
   userGenre:null
 
@@ -12,7 +12,7 @@ const state = {
 const getters = {
 
   result: state => {
-    return state.result;
+    return state.movies;
   },
 
   genres: state => {
@@ -27,8 +27,8 @@ const getters = {
 
 const mutations = {
 
-setSource(state, result) {
-  state.result = result;
+setMovies(state, movies) {
+  state.movies = movies;
 },
 
 setGenre(state, genres) {
@@ -45,8 +45,14 @@ const actions = {
   initGenres: ({commit}) => {
     Vue.http.get('https://api.themoviedb.org/3/genre/movie/list?api_key=' + state.apiKey ).then((response) => {
     commit('setGenre',  response.body.genres );
-  })
+    })
 
+  },
+
+  getMovies: ({commit}) => {
+    Vue.http.get("https://api.themoviedb.org/3/genre/" + state.userGenre   + "/movies?api_key=" + state.apiKey ).then((response) => {
+      commit('setMovies', response.body.movies)
+    })
   },
 
   changeGenres: ({commit}, selectedGenre) => {
