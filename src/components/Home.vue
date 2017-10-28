@@ -18,6 +18,10 @@
 
   </div>
 
+  <div v-for="movie in movies" class="test2">
+    {{movie}}
+  </div>
+
     </div>
 
   </div>
@@ -40,6 +44,9 @@ computed: {
   },
   userGenre() {
     return this.$store.getters.userGenre;
+  },
+  movies() {
+    return this.$store.getters.movies;
   }
 
 },
@@ -53,6 +60,7 @@ methods: {
 
 created() {
 this.$store.dispatch('initGenres');
+this.$store.dispatch('getMovies');
 }
 
 

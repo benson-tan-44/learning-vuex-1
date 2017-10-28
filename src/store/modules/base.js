@@ -4,14 +4,14 @@ const state = {
   apiKey: '2519bad98acfb01294fc145600974941',
   movies:[],
   genres:[],
-  userGenre:null
+  userGenre:"28"
 
 
 }
 
 const getters = {
 
-  result: state => {
+  movies: state => {
     return state.movies;
   },
 
@@ -50,9 +50,10 @@ const actions = {
   },
 
   getMovies: ({commit}) => {
-    Vue.http.get("https://api.themoviedb.org/3/genre/" + state.userGenre   + "/movies?api_key=" + state.apiKey ).then((response) => {
-      commit('setMovies', response.body.movies)
+    Vue.http.get('https://api.themoviedb.org/3/genre/movie/list?api_key=' + state.apiKey ).then((response) => {
+    commit('setMovies',  response.body.genres );
     })
+
   },
 
   changeGenres: ({commit}, selectedGenre) => {
