@@ -22,6 +22,8 @@
     {{movie}}
   </div>
 
+  <button v-on:click="getMovies">Go!</button>
+
     </div>
 
   </div>
@@ -54,13 +56,16 @@ computed: {
 methods: {
   changeGenres() {
     this.$store.dispatch('changeGenres', this.selectedGenre );
+  },
+  getMovies() {
+    this.$store.dispatch('getMovies');
   }
+
 },
 
 
 created() {
 this.$store.dispatch('initGenres');
-this.$store.dispatch('getMovies');
 }
 
 
