@@ -1,28 +1,25 @@
 <template>
 
     <div class="col-md-12">
-      <h1>Home Component testing</h1>
+      <h1>Select a movie genre!</h1>
 
       <div v-for="genre in genres" class="test">
-        {{genre}}
+        {{genre.name}}
       </div>
 
+<!--
   <select v-on:change="changeGenres" v-model="selectedGenre">
     <option :value="null">None</option>
     <option value="28">Action</option>
   </select>
+-->
 
-  <div>
-    {{selectedGenre}}
-    {{userGenre}}
-
-  </div>
 
   <div v-for="movie in movies" class="test2">
     {{movie}}
   </div>
 
-  <button v-on:click="getMovies">Go!</button>
+  <!--<button v-on:click="getMovies">Go!</button>-->
 
     </div>
 
@@ -31,6 +28,8 @@
 </template>
 
 <script>
+
+import Genres from './Genres.vue'
 
 export default {
 
@@ -41,9 +40,6 @@ data() {
 },
 
 computed: {
-  genres() {
-  return this.$store.getters.genres;
-  },
   userGenre() {
     return this.$store.getters.userGenre;
   },
@@ -62,6 +58,10 @@ methods: {
   }
 
 },
+
+components: {
+  appGenres: GenresView
+}
 
 
 created() {
