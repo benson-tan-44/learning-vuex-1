@@ -1,18 +1,11 @@
 <template>
-  <div class="col-sm-6 col-md-4">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 class="panel-title">
+  <div class="col-sm-3 col-md-2">
+
+        <h3 class="btn btn-primary">
           <strong>{{genre.name}}</strong>
         </h3>
       </div>
-      <!--
-      <div class="panel-body">
-        {{item.desc}}
-      </div>
-    -->
-    </div>
-  </div>
+
 </template>
 
 <script>
@@ -26,4 +19,9 @@ export default {
 .panel{
   height:200px;
 }
+
+.btn-primary{
+  font-size:22px;
+}
+
 </style>

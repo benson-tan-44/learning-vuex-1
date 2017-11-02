@@ -61,7 +61,8 @@ to{
 
 body{
   font-family: 'Ubuntu', sans-serif;
-background:#f6f6f7;
+background:black;
+color:white;
 }
 
 .panel-title {
