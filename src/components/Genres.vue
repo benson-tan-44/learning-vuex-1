@@ -15,8 +15,8 @@ export default {
       genres() {
       return this.$store.getters.genres;
       }
-    }
   },
+
   components: {
     appGenre: GenresView
   }

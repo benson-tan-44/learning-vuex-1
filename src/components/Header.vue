@@ -2,15 +2,19 @@
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <router-link class="navbar-brand" to="/">Doot Doot</router-link>
+      <router-link class="navbar-brand" to="/">Movie Database
+
+      </router-link>
+      <h2>select a genre below to get started...</h2>
     </div>
 
     <div class="navbar-collapse">
       <ul class="nav navbar-nav">
+        <!--
         <router-link to="/inventory" activeClass="active" tag="li"><a>Pachi</a></router-link>
         <router-link to="/store" activeClass="active" tag="li"><a>Machi</a></router-link>
         <router-link to="/party" activeClass="active" tag="li"><a>Hachi</a></router-link>
-
+      -->
         <!--
         <li :class="{open: isDropdownOpen}" class="dropdown">
           <a
@@ -67,8 +71,12 @@ export default {
 </script>
 
 <style scoped>
-.funds{
-  color:white;
+
+
+
+h2{
+  font-size:14px;
+  text-align:left;
 }
 
 .navbar-default{

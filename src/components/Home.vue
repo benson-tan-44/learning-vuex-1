@@ -1,25 +1,9 @@
 <template>
 
     <div class="col-md-12">
-      <h1>Select a movie genre!</h1>
-
-      <div v-for="genre in genres" class="test">
-        {{genre.name}}
-      </div>
-
-<!--
-  <select v-on:change="changeGenres" v-model="selectedGenre">
-    <option :value="null">None</option>
-    <option value="28">Action</option>
-  </select>
--->
 
 
-  <div v-for="movie in movies" class="test2">
-    {{movie}}
-  </div>
-
-  <!--<button v-on:click="getMovies">Go!</button>-->
+      <app-genres></app-genres>
 
     </div>
 
@@ -60,8 +44,8 @@ methods: {
 },
 
 components: {
-  appGenres: GenresView
-}
+  appGenres: Genres
+},
 
 
 created() {
@@ -78,4 +62,13 @@ this.$store.dispatch('initGenres');
 h3{
   font-family: 'Verdana';
 }
+h2{
+  font-family:'Verdana';
+  font-weight:300;
+  text-transform:uppercase;
+  font-size:24px;
+}
+
+
+
 </style>
