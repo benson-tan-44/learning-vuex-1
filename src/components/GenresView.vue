@@ -1,8 +1,9 @@
 <template>
   <div class="col-sm-3 col-md-2">
 
-        <h3 class="btn btn-primary">
-          <strong>{{genre.name}}</strong>
+        <h3 v-on:click="selectGenre" class="btn btn-primary">
+          <strong>{{genre.name}} </strong>
+
         </h3>
       </div>
 
@@ -10,8 +11,18 @@
 
 <script>
 export default {
-  props:['genre']
+  props:['genre'],
+
+  methods: {
+    selectGenre() {
+      this.$store.dispatch('genreSelected', this.genre.id);
+    }
+  }
+
+
 }
+
+
 
 </script>
 

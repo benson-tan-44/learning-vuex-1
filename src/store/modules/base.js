@@ -4,7 +4,8 @@ const state = {
   apiKey: '2519bad98acfb01294fc145600974941',
   movies:[],
   genres:[],
-  userGenre:null
+  userGenre:null,
+  isGenreSelected: false
 
 
 }
@@ -21,6 +22,10 @@ const getters = {
 
   userGenre: state => {
     return state.userGenre;
+  },
+
+  isGenreSelected: state => {
+    return state.isGenreSelected;
   }
 
 }
@@ -35,8 +40,9 @@ setGenre(state, genres) {
   state.genres = genres;
 },
 
-setUserGenre(state, selectedGenre ) {
-  state.userGenre = selectedGenre;
+setGenreSelected(state, genreId) {
+  state.isGenreSelected = !state.isGenreSelected;
+  state.userGenre = genreId;
 }
 
 }
@@ -56,8 +62,9 @@ const actions = {
 
   },
 
-  changeGenres: ({commit}, selectedGenre) => {
-    commit('setUserGenre', selectedGenre);
+  genreSelected: ({commit}, genreId) =>
+  {
+    commit('setGenreSelected', genreId);
   }
 
 }
