@@ -1,7 +1,9 @@
 <template>
 
-    <div class="col-md-12">
+    <div v-if="!isGenreSelected" class="col-md-12">
+
       <app-genre v-for="genre in genres" :genre="genre"></app-genre>
+      
     </div>
 
   </div>
@@ -14,6 +16,9 @@ export default {
   computed: {
       genres() {
       return this.$store.getters.genres;
+      },
+      isGenreSelected() {
+        return this.$store.getters.isGenreSelected;
       }
   },
 
