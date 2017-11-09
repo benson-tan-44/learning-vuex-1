@@ -16,6 +16,7 @@ export default {
   methods: {
     selectGenre() {
       this.$store.dispatch('genreSelected', this.genre.id);
+      this.$store.dispatch('getMovies');
     }
   }
 
@@ -32,7 +33,7 @@ export default {
 }
 
 .btn-primary{
-  font-size:22px;
+  font-size:20px;
 }
 
 </style>

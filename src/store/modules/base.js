@@ -5,7 +5,10 @@ const state = {
   movies:[],
   genres:[],
   userGenre:null,
-  isGenreSelected: false
+  isGenreSelected: false,
+  showSingle:false,
+  singleMovie: {},
+
 
 
 }
@@ -26,6 +29,19 @@ const getters = {
 
   isGenreSelected: state => {
     return state.isGenreSelected;
+  },
+
+  showSingle: state => {
+    return state.showSingle;
+  },
+
+  singleMovie: state => {
+    return state.singleMovie;
+  },
+
+  apiKey: state =>
+  {
+    return state.apiKey;
   }
 
 }
@@ -43,7 +59,21 @@ setGenre(state, genres) {
 setGenreSelected(state, genreId) {
   state.isGenreSelected = !state.isGenreSelected;
   state.userGenre = genreId;
-}
+},
+
+setShowSingle(state, movieObject) {
+  state.showSingle = !state.showSingle;
+  state.singleMovie = movieObject;
+},
+
+falseShowSingle(state) {
+  state.showSingle = false;
+},
+
+falseGenreSelected(state) {
+  state.isGenreSelected = false;
+},
+
 
 }
 
@@ -56,16 +86,32 @@ const actions = {
   },
 
   getMovies: ({commit}) => {
-    Vue.http.get('https://api.themoviedb.org/3/discover/movie?api_key=' + state.apiKey + '&with_genres=' + state.userGenre  ).then((response) => {
+    Vue.http.get('https://api.themoviedb.org/3/discover/movie?api_key=' + state.apiKey + '&with_genres=' + state.userGenre + '&page=1'  ).then((response) => {
     commit('setMovies',  response.body.results );
     })
 
   },
 
+
   genreSelected: ({commit}, genreId) =>
   {
     commit('setGenreSelected', genreId);
+  },
+
+  singleSelected: ({commit}, movieObject) => {
+    commit('setShowSingle', movieObject);
+  },
+
+  backList: ({commit}) =>
+  {
+    commit('falseShowSingle');
+  },
+
+  backGenres: ({commit}) =>
+  {
+    commit('falseGenreSelected');
   }
+
 
 }
 

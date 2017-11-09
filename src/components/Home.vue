@@ -4,6 +4,7 @@
 
 
       <app-genres></app-genres>
+      <app-movies></app-movies>
 
     </div>
 
@@ -14,6 +15,7 @@
 <script>
 
 import Genres from './Genres.vue'
+import Movies from './Movies.vue'
 
 export default {
 
@@ -26,25 +28,20 @@ data() {
 computed: {
   userGenre() {
     return this.$store.getters.userGenre;
-  },
-  movies() {
-    return this.$store.getters.movies;
   }
-
 },
 
 methods: {
   changeGenres() {
     this.$store.dispatch('changeGenres', this.selectedGenre );
   },
-  getMovies() {
-    this.$store.dispatch('getMovies');
-  }
+
 
 },
 
 components: {
-  appGenres: Genres
+  appGenres: Genres,
+  appMovies: Movies
 },
 
 
@@ -66,7 +63,7 @@ h2{
   font-family:'Verdana';
   font-weight:300;
   text-transform:uppercase;
-  font-size:24px;
+  font-size:22px;
 }
 
 
