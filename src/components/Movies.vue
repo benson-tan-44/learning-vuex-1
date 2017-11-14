@@ -1,9 +1,7 @@
 <template>
 
     <div v-if="isGenreSelected" class="col-md-12">
-        <h2 v-if="!showSingle"class="btn btn-primary" v-on:click="backGenres">Back to Genres</h2>
-
-      <hr>
+      
       <app-movie v-if="!showSingle" v-for="movie in movies" :movie="movie"></app-movie>
       <app-single v-if="showSingle"></app-single>
 

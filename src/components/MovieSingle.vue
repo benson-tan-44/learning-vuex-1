@@ -2,11 +2,25 @@
   <div class="col-sm-12 col-md-12">
 
     <h2 class="btn btn-primary" v-on:click="backList">Back to list</h2>
-        <h3>
+    <hr/>
 
 
-          <img :src="'https://image.tmdb.org/t/p/w500/' + this.singleMovie.movie.poster_path" />
-        </h3>
+
+
+
+          <div class="col-md-3">
+          <img class="img-responsive" :src="'https://image.tmdb.org/t/p/w500/' + this.singleMovie.movie.poster_path" />
+          </div>
+
+          <div class="col-md-9">
+            <h2>{{singleMovie.movie.overview}} </h2>
+
+              <h3>Initial Release Date: {{singleMovie.movie.release_date}}</h3>
+
+              <h4>Vote Count: {{singleMovie.movie.vote_count}} | Rating:  {{singleMovie.movie.vote_average}}</h4>
+          </div>
+
+
 
 
 
