@@ -8,6 +8,7 @@ const state = {
   isGenreSelected: false,
   showSingle:false,
   singleMovie: {},
+  pageID:1
 
 
 
@@ -42,6 +43,10 @@ const getters = {
   apiKey: state =>
   {
     return state.apiKey;
+  },
+  pageID: state =>
+  {
+    return state.pageID;
   }
 
 }
@@ -73,6 +78,10 @@ falseShowSingle(state) {
 falseGenreSelected(state) {
   state.isGenreSelected = false;
 },
+
+alterPage(state, alter) {
+  state.pageID++;
+}
 
 
 }
@@ -110,6 +119,11 @@ const actions = {
   backGenres: ({commit}) =>
   {
     commit('falseGenreSelected');
+  },
+
+  changePage: ({commit}, command) =>
+  {
+    commit('alterPage', command);
   }
 
 
