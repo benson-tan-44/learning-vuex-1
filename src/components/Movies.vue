@@ -1,9 +1,14 @@
 <template>
 
     <div v-if="isGenreSelected" class="col-md-12">
-      
+
       <app-movie v-if="!showSingle" v-for="movie in movies" :movie="movie"></app-movie>
       <app-single v-if="showSingle"></app-single>
+
+      <div v-if="!showSingle">
+        <button v-if="pageID != 1" class="btn btn-primary">Previous page</button>
+        <button v-on:click="changePage" class="btn btn-primary">Next page</button>
+      </div>
 
     </div>
 
@@ -27,6 +32,10 @@ export default {
 
       showSingle() {
         return this.$store.getters.showSingle;
+      },
+
+      pageID() {
+        return this.$store.getters.pageID;
       }
 
 
@@ -40,6 +49,9 @@ export default {
   methods: {
     backGenres() {
       this.$store.dispatch('backGenres');
+    },
+    changePage() {
+
     }
   }
 }

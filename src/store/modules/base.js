@@ -79,8 +79,13 @@ falseGenreSelected(state) {
   state.isGenreSelected = false;
 },
 
-alterPage(state, alter) {
-  state.pageID++;
+alterPage(state, command) {
+  if(command === "add") {
+    state.pageID++;
+  } else if (command === "sub") {
+    state.pageID--;
+  }
+
 }
 
 
@@ -95,7 +100,7 @@ const actions = {
   },
 
   getMovies: ({commit}) => {
-    Vue.http.get('https://api.themoviedb.org/3/discover/movie?api_key=' + state.apiKey + '&with_genres=' + state.userGenre + '&page=1'  ).then((response) => {
+    Vue.http.get('https://api.themoviedb.org/3/discover/movie?api_key=' + state.apiKey + '&with_genres=' + state.userGenre + '&page=' + state.pageID  ).then((response) => {
     commit('setMovies',  response.body.results );
     })
 
