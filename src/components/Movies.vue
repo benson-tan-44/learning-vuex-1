@@ -9,7 +9,7 @@
         <button v-if="pageID != 1" class="btn btn-primary">Previous page</button>
         <button v-on:click="changePage" class="btn btn-primary">Next page</button>
       </div>
-
+<!-- Single -->
     </div>
 
   </div>
